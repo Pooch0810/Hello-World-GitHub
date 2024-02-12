@@ -22,7 +22,7 @@
       font-size: 16px;
       cursor: pointer;
     }
-    #colorImage {
+    #evilImage {
       max-width: 200px;
       margin-top: 20px;
     }
@@ -44,26 +44,26 @@
 
   <div class="page" id="page3">
     <h1>Page 3</h1>
-    <p>Hello <span id="userName"></span>, please select your favorite color:</p>
-    <select id="colorSelect" onchange="displayColorImage()">
-      <option value="red">Red</option>
-      <option value="blue">Blue</option>
-      <option value="green">Green</option>
-      <option value="yellow">Yellow</option>
+    <p>Hello <span id="userName"></span>, please select your favorite food:</p>
+    <select id="foodSelect" onchange="displayFoodImage()">
+      <option value="pizza">Pizza</option>
+      <option value="burger">Burger</option>
+      <option value="sushi">Sushi</option>
+      <option value="pasta">Pasta</option>
     </select>
     <button onclick="showPage('page4')">Next</button>
   </div>
 
   <div class="page" id="page4">
     <h1>Page 4</h1>
-    <p>Please click the button to proceed.</p>
+    <p>Uh-oh! You have awakened the evil spirit! click next to continue</p>
+    <img id="evilImage" src="evil-face.jpg" alt="Evil Face">
     <button onclick="showPage('page5')">Next</button>
   </div>
 
   <div class="page" id="page5">
     <h1>Final Page</h1>
-    <p>Congratulations <span id="finalName"></span>! Your favorite color is <span id="finalColor"></span>.</p>
-    <img id="colorImage" src="" alt="Chosen Color">
+    <p>Congratulations <span id="finalName"></span>! Your favorite food is <span id="finalFood"></span>.</p>
   </div>
 
   <script>
@@ -75,21 +75,11 @@
 
       if (pageId === 'page5') {
         var name = document.getElementById('nameInput').value;
-        var color = document.getElementById('colorSelect').value;
+        var food = document.getElementById('foodSelect').value;
         document.getElementById('finalName').textContent = name;
-        document.getElementById('finalColor').textContent = color;
-
-        // Set image source based on selected color
-        var colorImage = document.getElementById('colorImage');
-        colorImage.src = color + '.jpg'; // Assuming you have images named red.jpg, blue.jpg, etc.
+        document.getElementById('finalFood').textContent = food;
       }
-    }
-
-    function displayColorImage() {
-      var color = document.getElementById('colorSelect').value;
-      var colorImage = document.getElementById('colorImage');
-      colorImage.src = color + '.jpg'; // Assuming you have images named red.jpg, blue.jpg, etc.
-    }
+      
   </script>
 </body>
 </html>
