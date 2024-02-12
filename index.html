@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Website</title>
+  <title>coolest website? maybe</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -26,7 +26,7 @@
 </head>
 <body>
   <div class="page" id="page1">
-    <h1>Welcome to the Interactive Website!</h1>
+    <h1>Welcome click to move to the next page!</h1>
     <p>Please click the button to proceed.</p>
     <button onclick="showPage('page2')">Next</button>
   </div>
@@ -40,25 +40,25 @@
 
   <div class="page" id="page3">
     <h1>Page 3</h1>
-    <p>Hello <span id="userName"></span>, please select your favorite color:</p>
+    <p>Hello <span id="userName"></span>, please select your favorite food:</p>
     <select id="colorSelect">
-      <option value="red">Red</option>
-      <option value="blue">Blue</option>
-      <option value="green">Green</option>
-      <option value="yellow">Yellow</option>
+      <option value="Pizza">pizza</option>
+      <option value="pasta">Pasta</option>
+      <option value="chicken and rice">chicken and rice</option>
+      <option value="burritos">burritos</option>
     </select>
     <button onclick="showPage('page4')">Next</button>
   </div>
 
   <div class="page" id="page4">
     <h1>Page 4</h1>
-    <p>Please click the button to proceed.</p>
+    <p>Please click the button if you dare!</p>
     <button onclick="showPage('page5')">Next</button>
   </div>
 
   <div class="page" id="page5">
     <h1>Final Page</h1>
-    <p>Congratulations <span id="finalName"></span>! Your favorite color is <span id="finalColor"></span>.</p>
+    <p>Congratulations <span id="finalName"></span>! Your favorite food is <span id="finalColor"></span>.</p>
   </div>
 
   <script>
@@ -70,9 +70,9 @@
 
       if (pageId === 'page5') {
         var name = document.getElementById('nameInput').value;
-        var color = document.getElementById('colorSelect').value;
+        var food = document.getElementById('foodSelect').value;
         document.getElementById('finalName').textContent = name;
-        document.getElementById('finalColor').textContent = color;
+        document.getElementById('finalFood').textContent = food;
       }
     }
   </script>
