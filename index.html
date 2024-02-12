@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>coolest website? maybe</title>
+  <title>Interactive Website</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -22,11 +22,15 @@
       font-size: 16px;
       cursor: pointer;
     }
+    #colorImage {
+      max-width: 200px;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
   <div class="page" id="page1">
-    <h1>Welcome click to move to the next page!</h1>
+    <h1>Welcome to the Interactive Website!</h1>
     <p>Please click the button to proceed.</p>
     <button onclick="showPage('page2')">Next</button>
   </div>
@@ -40,25 +44,26 @@
 
   <div class="page" id="page3">
     <h1>Page 3</h1>
-    <p>Hello <span id="userName"></span>, please select your favorite food:</p>
-    <select id="foodSelect">
-      <option value="Pizza">pizza</option>
-      <option value="pasta">Pasta</option>
-      <option value="chicken and rice">chicken and rice</option>
-      <option value="burritos">burritos</option>
+    <p>Hello <span id="userName"></span>, please select your favorite color:</p>
+    <select id="colorSelect" onchange="displayColorImage()">
+      <option value="red">Red</option>
+      <option value="blue">Blue</option>
+      <option value="green">Green</option>
+      <option value="yellow">Yellow</option>
     </select>
     <button onclick="showPage('page4')">Next</button>
   </div>
 
   <div class="page" id="page4">
     <h1>Page 4</h1>
-    <p>Please click the button if you dare!</p>
+    <p>Please click the button to proceed.</p>
     <button onclick="showPage('page5')">Next</button>
   </div>
 
   <div class="page" id="page5">
     <h1>Final Page</h1>
-    <p>Congratulations <span id="finalName"></span>! Your favorite food is <span id="finalFood"></span>.</p>
+    <p>Congratulations <span id="finalName"></span>! Your favorite color is <span id="finalColor"></span>.</p>
+    <img id="colorImage" src="" alt="Chosen Color">
   </div>
 
   <script>
@@ -70,10 +75,20 @@
 
       if (pageId === 'page5') {
         var name = document.getElementById('nameInput').value;
-        var food = document.getElementById('foodSelect').value;
+        var color = document.getElementById('colorSelect').value;
         document.getElementById('finalName').textContent = name;
-        document.getElementById('finalFood').textContent = food;
+        document.getElementById('finalColor').textContent = color;
+
+        // Set image source based on selected color
+        var colorImage = document.getElementById('colorImage');
+        colorImage.src = color + '.jpg'; // Assuming you have images named red.jpg, blue.jpg, etc.
       }
+    }
+
+    function displayColorImage() {
+      var color = document.getElementById('colorSelect').value;
+      var colorImage = document.getElementById('colorImage');
+      colorImage.src = color + '.jpg'; // Assuming you have images named red.jpg, blue.jpg, etc.
     }
   </script>
 </body>
